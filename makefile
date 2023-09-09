@@ -14,5 +14,7 @@ run:
 	@docker run --rm -it --name $(APP_NAME) $(IMAGE_NAME)
 run-gpu:
 	@docker run --rm -it --gpus=all --name $(APP_NAME) $(IMAGE_NAME)
+run-gpu-link:
+	@docker run --rm -it --gpus=all -v ../models:/root/.local/share/Open_Interpreter/models --name $(APP_NAME) $(IMAGE_NAME)
 rm:
 	@docker rm $(APP_NAME)
