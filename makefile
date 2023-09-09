@@ -11,8 +11,8 @@ CUR_DIR = $(shell echo "${PWD}")
 build:
 	@docker build -t $(IMAGE_NAME) -f $(DOCKERFILE) $(CUR_DIR)
 run:
-	@docker run -it --name $(APP_NAME) $(IMAGE_NAME)
+	@docker run --rm -it --name $(APP_NAME) $(IMAGE_NAME)
 run-gpu:
-	@docker run -it --gpus=all --name $(APP_NAME) $(IMAGE_NAME)
+	@docker run --rm -it --gpus=all --name $(APP_NAME) $(IMAGE_NAME)
 rm:
 	@docker rm $(APP_NAME)
